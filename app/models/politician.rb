@@ -3,7 +3,7 @@ class Politician < ApplicationRecord
 	belongs_to :state
 	belongs_to :district
 
-	def senate
+  def senate
   	'Member of the United States Senate'
   end
 
