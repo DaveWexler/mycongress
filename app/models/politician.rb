@@ -12,25 +12,25 @@ class Politician < ApplicationRecord
   		#{representative_seat.district.name.to_i.ordinalize} district"
   end
 
-  SEARCH_BY = ['Over (Age)','Under (Age)','By (Age)','By (Education)'] 
+  SEARCH_BY = ['Over (Age)','Under (Age)','By (Age)'] 
   FILTER_BY = ['Senators','House of Reps','Democrat','Republican','All']
   ##QUERIES ADD ^ HERE
 
 
   def self.republican
-    where(party: 'Republican')
+    where(party: 'R')
   end
 
   def self.democrat
-    where(party: 'Democrat')
+    where(party: 'D')
   end
 
   def self.house_of_reps
-    joins(:representative_seat)
+   where(chamber: "house")
   end
 
   def self.senators
-    joins(:senate_seat)
+    where(chamber: "senate")
   end
 
   def self.polit_over_age(age)
@@ -45,8 +45,9 @@ class Politician < ApplicationRecord
     where('birth_year = ?',"#{Time.now.year - age.to_i}")
   end
 
-  def self.polit_by_education(school)
-    Politician.where('education LIKE ?', "%#{school.capitalize}%")
+  def full_name
+    self.middle_name == nil ? self.middle_name = "" : self.middle_name += " "
+    name = self.first_name + " " + self.middle_name + self.last_name
   end
 
 end

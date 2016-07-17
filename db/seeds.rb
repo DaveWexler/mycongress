@@ -7,7 +7,7 @@
 #   Character.create(nam] = 'Luke' movi] = movies.first)
 
 include Adapter
-client = Adapter::CongressGem.new
+client = Adapter::Legislators.new
 @politicians = client.run
 
 def run
