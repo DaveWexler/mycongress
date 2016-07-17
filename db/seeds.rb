@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ nam] = 'Star Wars' } { nam] = 'Lord of the Rings' }])
 #   Character.create(nam] = 'Luke' movi] = movies.first)
 
-include Adapter
-client = Adapter::CongressGem.new
+client = Adapter::Legislators.new
 @politicians = client.run
 
 def run
   @politicians.map do |politician|
     Politician.create(parse(politician))
+    grab_photo(politician)
   end
 end
 
@@ -55,6 +55,18 @@ def parse(politician)
     newpol["district"] = District.find_or_create_by(name: politician["district"], state: newpol["state"])
     
     newpol  
+end
+
+def grab_photo(politician)
+    begin
+    root_dir = Rails.root.join('app','assets','images',[politician["first_name"],
+                                                      politician["last_name"] + '.jpg'].join('_'))
+    uri = URI.join( politician["bioguide_id"], "https://theunitedstates.io/images/congress/225x275/#{politician['bioguide_id']}" ).to_s
+    binding.pry
+    File.open(root_dir,'wb') { |f| f.write(open(uri).read)}
+    rescue Exception => e
+    puts "Error #{e} for #{@first_name} #{@last_name}"
+  end
 end
 
 
