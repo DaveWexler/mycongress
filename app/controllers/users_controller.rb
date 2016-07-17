@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
 
+
   def new
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
-    @user.get_district
+    Adapter::Districts.new(@user)
+    binding.pry
     @user.save
     if @user.errors.messages.present?
       flash.now[:message] = @user.errors.full_messages
@@ -43,7 +45,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :street_address, :city, :password, :email, :state)
+    params.require(:user).permit(:first_name, :last_name, :street_address, :city, :password, :email, :state_id)
   end
 
 end

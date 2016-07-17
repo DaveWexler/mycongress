@@ -26,24 +26,24 @@
         </div>
         <div id="sidebar" class="panel panel-default col-xs-4">
         <div class="panel body">
-          <%= link_to image_tag("#{@user.senator1.image_name}"), politician_path(@user.senator1) %>
-          <h3><%= @user.senator1.full_name  %></h3>
-          <p>Political Party: <%= @user.senator1.party %></p>
-          <p>Prior Experience: <%= @user.senator1.prior_experience %></p>
-          <p>Education: <%= @user.senator1.education %></p>
-          <p>Email: <%= @user.senator1.email %></p>
-          <p><%= @user.senator1.senate_or_house %></p>
+          <%= link_to image_tag("#{@user.senior_sen.image_name}"), politician_path(@user.senior_sen) %>
+          <h3><%= @user.senior_sen.full_name  %></h3>
+          <p>Political Party: <%= @user.senior_sen.party %></p>
+          <p>Prior Experience: <%= @user.senior_sen.prior_experience %></p>
+          <p>Education: <%= @user.senior_sen.education %></p>
+          <p>Email: <%= @user.senior_sen.email %></p>
+          <p><%= @user.senior_sen.senate_or_house %></p>
           </div>
         </div>
         <div id="sidebar" class="panel panel-default col-xs-4">
         <div class="panel body">
-          <%= link_to image_tag("#{@user.senator2.image_name}"), politician_path(@user.senator2) %>
-          <h3><%= @user.senator2.full_name  %></h3>
-          <p>Political Party: <%= @user.senator2.party %></p>
-          <p>Prior Experience: <%= @user.senator2.prior_experience %></p>
-          <p>Education: <%= @user.senator2.education %></p>
-          <p>Email: <%= @user.senator2.email %></p>
-          <p><%= @user.senator2.senate_or_house %></p>
+          <%= link_to image_tag("#{@user.junior_sen.image_name}"), politician_path(@user.junior_sen) %>
+          <h3><%= @user.junior_sen.full_name  %></h3>
+          <p>Political Party: <%= @user.junior_sen.party %></p>
+          <p>Prior Experience: <%= @user.junior_sen.prior_experience %></p>
+          <p>Education: <%= @user.junior_sen.education %></p>
+          <p>Email: <%= @user.junior_sen.email %></p>
+          <p><%= @user.junior_sen.senate_or_house %></p>
           </div>
         </div>
       </div>
