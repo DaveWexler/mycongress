@@ -12,12 +12,16 @@ class Politician < ApplicationRecord
   end
 
   def senate
-    'Member of the United States Senate'
+    "Member of the United States Senate representing #{state.name}"
   end
 
   def house
-    "Member of the United States House of Representatives from #{representative_seat.district.state.name}'s
-      #{representative_seat.district.name.to_i.ordinalize} district"
+    "Member of the United States House of Representatives from #{state.name}'s
+      #{district.name.to_i.ordinalize} district"
+  end
+
+  def house_or_senate
+    self.district.nil? ? senate : house
   end
 
   def age
