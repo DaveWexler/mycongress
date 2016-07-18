@@ -5,10 +5,10 @@ class PoliticiansController < ApplicationController
   end
 
   def index
-  	if !params['query'].nil?
-      @politicians = Politician.send(search_method,search_value).send(filter_method)
-    else
+  	if params['query'].nil?
       @politicians = Politician.order('Random()').first(9)
+    else
+      @politicians = search.first(9)
   	end
   end
 
@@ -19,7 +19,7 @@ class PoliticiansController < ApplicationController
   end
 
   def search_method
-  	query_params.values[2].scan(/[[:word:]]+/).map(&:downcase).unshift('polit').join('_')
+  	Politician::SEARCH_BY["#{query_params.values[2]}"]
   end
 
   def search_value
@@ -30,4 +30,11 @@ class PoliticiansController < ApplicationController
   	query_params.values[1].split.map(&:downcase).join('_')
   end
 
+  def search
+    if search_method.nil?
+      Politician.send(filter_method)
+    else
+      Politician.send(search_method,search_value).send(filter_method)
+    end
+  end
 end

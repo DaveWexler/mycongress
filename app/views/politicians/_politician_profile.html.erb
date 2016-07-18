@@ -11,10 +11,14 @@
         <div id="content" class="panel panel-default col-xs-9">
         <div class="panel body">
           <h3><%= politician.full_name  %></h3>
-          <p>Political Party: <%= politician["chamber"].capitalize %></p>
+          <p>Political Party: <%= politician.chamber.capitalize %></p>
+          <p>Age: <%= politician.age %></p>
           <p>Prior Experience: </p>
           <p>Education:</p>
           <p>Email: </p>
+          <p>Facebook: <%= politician.facebook %></p>
+          <p>Youtube: <%= politician.youtube %></p>
+          <p>Twitter: <%= politician.twitter %></p>
         </div>
       </div>
     </div>
