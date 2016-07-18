@@ -53,4 +53,16 @@ class Politician < ApplicationRecord
     [first_name, middle_name, last_name].compact.join(' ')
   end
 
+  def self.has_youtube
+    Politician.where.not(youtube: nil)
+  end
+
+  def self.has_facebook
+    Politician.where.not(facebook: nil)
+  end
+
+  def self.has_twitter
+    Politician.where.not(twitter: nil)
+  end
+
 end
