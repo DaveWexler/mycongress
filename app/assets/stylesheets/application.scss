@@ -15,6 +15,14 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+body {
+  background: url('faded_flag1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 img {
  max-height: 300px;
  max-width: 225px;
@@ -43,3 +51,16 @@ img {
 .navbutton a {
   color: white;
 }
+
+/* -------- spacing out politician boxes --------- */
+.col-xs-4 {
+  width: 32.333%;
+}
+
+.colspace {
+  margin-left: 1%;
+}
+[class*="col-"]:first-child {
+  margin-left: 0;
+}
+
