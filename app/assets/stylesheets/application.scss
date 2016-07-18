@@ -16,5 +16,30 @@
  @import "bootstrap";
 
 img {
-  max-height: 350px;
+ max-height: 300px;
+ max-width: 225px;
+ min-height: 300px;
+ min-width: 225px; 
+}
+
+.navbar {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+19,207cca+53,207cca+80,207cca+80,207cca+80,1e5799+100 */
+  background: rgb(30,87,153); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(30,87,153,1) 0%, rgba(41,137,216,1) 19%, rgba(32,124,202,1) 53%, rgba(32,124,202,1) 80%, rgba(32,124,202,1) 80%, rgba(32,124,202,1) 80%, rgba(30,87,153,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 19%,rgba(32,124,202,1) 53%,rgba(32,124,202,1) 80%,rgba(32,124,202,1) 80%,rgba(32,124,202,1) 80%,rgba(30,87,153,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 19%,rgba(32,124,202,1) 53%,rgba(32,124,202,1) 80%,rgba(32,124,202,1) 80%,rgba(32,124,202,1) 80%,rgba(30,87,153,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+  clear: all;
+  width: 100%;
+  z-index: 0;  
+}
+
+.navbutton {
+  margin-top: 2px;
+  vertical-align: center;
+  z-index: 1;
+}
+
+.navbutton a {
+  color: white;
 }
