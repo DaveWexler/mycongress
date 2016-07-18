@@ -6,8 +6,8 @@ class User < ApplicationRecord
   belongs_to :state
   has_many :messages
 
-  validates :email, presence: true, uniqueness: true
-  validates_presence_of :password, :street_address, :state, :city, :name
+  # validates :email, presence: true, uniqueness: trues
+  # validates_presence_of :password, :street_address, :state, :city, :first_name, :last_name
 
   def name
   	first_name + ' ' + last_name

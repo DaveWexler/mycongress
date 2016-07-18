@@ -13,7 +13,7 @@ client = Adapter::Legislators.new
 def run
   @politicians.map do |politician|
     Politician.create(parse(politician))
-    # grab_photo(politician)
+    grab_photo(politician)
   end
 end
 
@@ -62,11 +62,12 @@ def grab_photo(politician)
   begin
     root_dir = Rails.root.join('app','assets','images',[politician["first_name"],
                                                         politician["last_name"] + '.jpg'].join('_'))
-    uri = URI.join( politician["bioguide_id"], "https://theunitedstates.io/images/congress/225x275/#{politician['bioguide_id']}" ).to_s
-    binding.pry
-    File.open(root_dir,'wb') { |f| f.write(open(uri).read)}
+    if !root_dir.exist?
+      uri = "https://theunitedstates.io/images/congress/225x275/#{politician['bioguide_id']}.jpg"
+      File.open(root_dir,'wb') { |f| f.write(open(uri).read)}
+    end
   rescue Exception => e
-    puts "Error #{e} for #{@first_name} #{@last_name}"
+    puts "Error #{e} for #{politician['first_name']} #{politician['last_name']}"
   end
 end
 
@@ -77,3 +78,19 @@ State.destroy_all
 District.destroy_all
 run
 District.where(name: nil).destroy_all
+jon = User.new(first_name: 'Jon', last_name: 'Log', password: 'one', email: 'jonlog@gmail.com', street_address: '11 Broadway', city: 'New York', state: State.find_by(name: 'New York'))
+jeremy = User.new(first_name: 'Jeremy', last_name: 'Won', password: 'one', email: 'jeremywon@aol.com', street_address: '2611 N Central Ave', city: 'Phoenix', state: State.find_by(name: 'Arizona'))
+lea = User.new(first_name: 'Lea', last_name: 'Bent', password: 'one', email: 'leabent@gmail.com', street_address: '15 Twilight Dr', city: 'Foxboro', state: State.find_by(name: 'Massachusetts'))
+irene = User.new(first_name: 'Irene', last_name: 'Left', password: 'one', email: 'ireneleft@gmail.com', street_address: '132 N Main St', city: 'Concord', state: State.find_by(name: 'New Hampshire'))
+willy = User.new(first_name: 'Jon', last_name: 'Wonka', password: 'one', email: 'willywonka@gmail.com', street_address: '2801 Main St', city: 'Irvine', state: State.find_by(name: 'California'))
+Adapter::Districts.new(jon)
+Adapter::Districts.new(jeremy)
+Adapter::Districts.new(lea)
+Adapter::Districts.new(irene)
+Adapter::Districts.new(willy)
+
+jon.save
+jeremy.save
+lea.save
+irene.save
+willy.save
