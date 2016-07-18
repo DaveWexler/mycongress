@@ -1,14 +1,19 @@
 class GatherBills
 
-	def initialize(array)
-		# array.map {|pol| get_bills(politician)}
-	end
+	attr_reader :politicians
 
-	def get_bills(politician)
-		client = Adapter::Bills.new
-		raw_bills = client.search(politician).results
+  def initialize(politicians)
+  	@politicians = politicians
+  end
 
-	end
+  def run
+    results = @politicians.map {|polit| {polit => get_bills(polit)} }
+  end
+
+  def get_bills(politician)
+    client = Adapter::Bills.new
+    client.run(politician)
+  end
 
 
 

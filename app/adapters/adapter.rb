@@ -18,7 +18,7 @@ module Adapter
         politicians << self.search(page_num)["results"]
         page_num += 1
       end
-      politicians.flatten!.uniq!.map do |politician|
+      politicians.flatten!.uniq!.each do |politician|
         Politician.create(parse(politician))
         grab_photo(politician)
       end
@@ -57,7 +57,7 @@ module Adapter
       newpol["facebook"] = politician["facebook_id"]
       newpol["youtube"] = politician["youtube_id"]
       newpol["state_rank"] = politician["state_rank"]
-      newpol["senate_class"] = politician[ "senate_class"]
+      newpol["senate_class"] = politician["senate_class"]
       newpol["lis_id"] = politician["lis_id"]
       newpol["state"] = State.find_or_create_by(name: politician["state_name"], abv: politician["state"])
       newpol["district"] = District.find_or_create_by(name: politician["district"], state: newpol["state"])
@@ -101,7 +101,7 @@ module Adapter
       query = Geocoder.search("#{@user.street_address}, #{@user.city},#{@user.state.name}")
       coordinates = query.first.data["geometry"]["location"]
       district_num = search(coordinates['lng'],coordinates['lat'])["results"][0]["district"]
-      @user.district = District.find_by(name: district_num,state: @user.state)
+      @user.district = District.find_by(name: district_num, state: @user.state)
     end
 
   end
@@ -113,9 +113,33 @@ module Adapter
     BASE_URL = 'https://congress.api.sunlightfoundation.com/bills'
     API_KEY = '15f7888634d244858926287bbd6222d9'
 
-    def search(politician)
-     response = self.class.get(BASE_URL, { query: { sponsor_id: politician.bioguide_id, 'history.active': true, apikey: API_KEY}})
+    def run(polit)
+      @polit = polit
+      search["results"].uniq.map {|bill| parse(bill) }
     end
+
+    def search
+      response = self.class.get(BASE_URL, { query: { sponsor_id: @polit.bioguide_id, 'history.active': true, apikey: API_KEY}})
+    end
+
+    def parse(bill)
+      {
+        short_title: bill["title"],
+        bill_id: bill["bill_id"],
+        chamber: bill["chamber"],
+        committee_ids: bill["committee_ids"],
+        active: bill["history"]["active"],
+        awaiting_signature: bill["history"]["awaiting_signature"],
+        enacted: bill["history"]["enacted"],
+        vetoed: bill["history"]["vetoed"],
+        introduced_on: bill["introduced_on"],
+        pdf: bill["last_version"]["urls"]["pdf"],
+        cosponsors_count: bill["cosponsor_count"],
+        url: bill["urls"]["govtrack"],
+        politician_id: @polit.id
+      }
+    end
+
 
   end
 
