@@ -3,6 +3,10 @@ class Politician < ApplicationRecord
 	belongs_to :state
 	belongs_to :district
 
+  def image_name
+    [first_name.capitalize, last_name.capitalize + '.jpg'].join('_')
+  end
+
   def senate
   	'Member of the United States Senate'
   end
@@ -46,8 +50,7 @@ class Politician < ApplicationRecord
   end
 
   def full_name
-    self.middle_name == nil ? self.middle_name = "" : self.middle_name += " "
-    name = self.first_name + " " + self.middle_name + self.last_name
+    [first_name, middle_name, last_name].compact.join(' ')
   end
 
 end

@@ -18,8 +18,8 @@
           <%= link_to image_tag("#{@user.representative.image_name}"), politician_path(@user.representative) %>
           <h3><%= @user.representative.full_name  %></h3>
           <p>Political Party: <%= @user.representative.party %></p>
-          <p>Email: <%= @user.representative.email %></p>
-          <p><%= @user.representative.senate_or_house %></p>
+          <p>Email: <%= @user.representative.oc_email %></p>
+          <p><%= @user.representative.chamber %></p>
           </div>
         </div>
         <div id="sidebar" class="panel panel-default col-xs-4">
@@ -27,8 +27,8 @@
           <%= link_to image_tag("#{@user.senior_sen.image_name}"), politician_path(@user.senior_sen) %>
           <h3><%= @user.senior_sen.full_name  %></h3>
           <p>Political Party: <%= @user.senior_sen.party %></p>
-          <p>Email: <%= @user.senior_sen.email %></p>
-          <p><%= @user.senior_sen.senate_or_house %></p>
+          <p>Email: <%= @user.senior_sen.oc_email %></p>
+          <p><%= @user.senior_sen.chamber %></p>
           </div>
         </div>
         <div id="sidebar" class="panel panel-default col-xs-4">
@@ -36,8 +36,8 @@
           <%= link_to image_tag("#{@user.junior_sen.image_name}"), politician_path(@user.junior_sen) %>
           <h3><%= @user.junior_sen.full_name  %></h3>
           <p>Political Party: <%= @user.junior_sen.party %></p>
-          <p>Email: <%= @user.junior_sen.email %></p>
-          <p><%= @user.junior_sen.senate_or_house %></p>
+          <p>Email: <%= @user.junior_sen.oc_email %></p>
+          <p><%= @user.junior_sen.chamber %></p>
           </div>
         </div>
       </div>

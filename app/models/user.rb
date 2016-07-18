@@ -18,11 +18,11 @@ class User < ApplicationRecord
   end
 
   def senior_sen
-    @user.state.politicians.where(chamber: 'senate').where(state_rank: 'senior')
+    state.politicians.where(chamber: 'senate').where(state_rank: 'senior').first
   end
 
   def junior_sen
-    @user.state.politicians.where(chamber: 'senate').where(state_rank: 'junior')
+    state.politicians.where(chamber: 'senate').where(state_rank: 'junior').first
   end
 
 end
