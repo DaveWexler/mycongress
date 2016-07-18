@@ -27,7 +27,14 @@ img {
  max-height: 300px;
  max-width: 225px;
  min-height: 300px;
- min-width: 225px; 
+ min-width: 225px;
+}
+
+.pol-img a{
+  display: block;
+  vertical-align: middle;
+  margin: 0 auto;
+  padding: 10px 10px;
 }
 
 .navbar {
@@ -63,4 +70,5 @@ img {
 [class*="col-"]:first-child {
   margin-left: 0;
 }
+/* --------- */
 

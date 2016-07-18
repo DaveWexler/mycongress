@@ -3,11 +3,11 @@
       <div class="row">
       <br>
       <br>
-        <div id="sidebar" class="panel panel-default col-xs-3">
-        <div class="panel body">
+        <div id="sidebar" class="panel panel-default col-xs-3 pol-img">
+        <!-- <div class="panel body pol-img"> -->
           <%= link_to image_tag("#{politician.image_name}"), politician_path(politician) %>
           </div>
-        </div>
+        <!-- </div> -->
         <div id="content" class="panel panel-default col-xs-9">
         <div class="panel body">
           <h3><%= politician.full_name  %></h3>
