@@ -4,9 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi User.find(@message.user_id).first_name</h1>
-    <p>
-      <%= @message.content %>
-    </p>
+    <p>Hi <%= User.find(@message.user_id).first_name%>,</p>
+    <p> You've receieved a message from a MyCongress user. The subject and content are below.</p>
+    <p>Subject: <%= @message.subject %></p>
+    <p>Content: <%= @message.content %></p>
+    </br>
+    <p> If this message has been receieved in error, please submit complaints to support@forgetaboutit.social</p>
   </body>
+
 </html>

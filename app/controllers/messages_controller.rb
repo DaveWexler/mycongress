@@ -10,10 +10,7 @@ class MessagesController < ApplicationController
 		@message.user_id = session[:user_id]
 		@message.politician_id = request.referer[34..-1].to_i
 		@message.save
-		flash[:alert] = "Post successfully created"
-		PoliticianMailer.send_email(@message).deliver
-		
+		PoliticianMailer.send_email(@message)
 		redirect_to politician_path(Politician.find_by(id: @message.politician_id))
-		flash[:alert] = "Post successfully created"
 	end
 end
