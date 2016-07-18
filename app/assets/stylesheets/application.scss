@@ -14,6 +14,11 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "heroic-features";
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   background: url('faded_flag1.jpg') no-repeat center center fixed;
@@ -23,6 +28,7 @@ body {
     background-size: cover;
 }
 
+/* -------politician show page ----------*/
 img {
  max-height: 300px;
  max-width: 225px;
@@ -30,12 +36,37 @@ img {
  min-width: 225px;
 }
 
-.pol-img a{
+.sidebar, .message {
+  background-color: white;
+}
+
+.message {
+  clear: none;
+  float: right;
+  /*margin-left: 2%;*/
+}
+
+/*.pol-img {
   display: block;
   vertical-align: middle;
   margin: 0 auto;
   padding: 10px 10px;
+  float: left;
+}*/
+/*
+.pol-info {
+  clear: left;
+  padding: 10px 10px;
+}*/
+/*.col-xs-3 {
+  width: 32.666
 }
+
+.col-xs-9 {
+  width: 65.333
+}*/
+
+/* ------ end politician show page ---------*/
 
 .navbar {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+19,207cca+53,207cca+80,207cca+80,207cca+80,1e5799+100 */
@@ -67,8 +98,8 @@ img {
 .colspace {
   margin-left: 1%;
 }
-[class*="col-"]:first-child {
+/*[class*="col-"]:first-child {
   margin-left: 0;
-}
+}*/
 /* --------- */
 

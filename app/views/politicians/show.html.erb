@@ -1,3 +1,10 @@
-<%= render partial: "politician_profile", locals: {politician: @politician} %>
-<%= render partial: "/messages/form"%>
-<%= render partial: "/bills/bills"%>
+<br>
+<br>
+<div class="row">
+  <%= render partial: "politician_profile", locals: {politician: @politician} %>
+  <div class="message col-md-9 col-sm-6">
+    <%= render partial: "/messages/form"%>
+  </div>
+</div>
+<!--  render partial: "/bills/bills"
+-->

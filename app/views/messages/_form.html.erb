@@ -1,4 +1,5 @@
-<div class="form-horizontal">
+
+<div class="form-horizontal col-xs-9">
 <%= form_for(Message.new, html: {class: 'form-horizontal'}) do |f| %>
   <div class="field form-group">
 	  <p><%= f.label :subject, class: 'col-sm-2 control-label' %></p>
@@ -17,6 +18,4 @@
   <p><%= f.submit 'Send Message' %> </p>
    </div>
   </div>
-  </br>
 <% end %>
-</div>
