@@ -1,7 +1,7 @@
 
 <h3>Query All Politicians:</h3>
 <%= form_tag '/politicians', method: "GET" do %>
-<p>Search by:<%= select_tag "query[search_by]", options_for_select(Politician::SEARCH_BY, "by education") %>
+<p>Search by:<%= select_tag "query[search_by]", options_for_select(Politician::SEARCH_HASH) %>
 Value: <%= text_field_tag "query[search_value]" %></p>
 Filter By:<% Politician::FILTER_BY.each do |search_filter| %>
 <%= search_filter %> <%= check_box_tag "query[search_filter][]", search_filter %>

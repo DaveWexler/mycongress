@@ -19,7 +19,7 @@ class PoliticiansController < ApplicationController
   end
 
   def search_method
-    Politician::SEARCH_BY["#{query_params.values[1]}"]
+    query_params.values[1]
   end
 
   def search_value
@@ -31,15 +31,11 @@ class PoliticiansController < ApplicationController
   end
 
   def search
-    if search_method.nil?
-      send_chain
-    else
-      Politician.send(search_method,search_value).send_chain
-    end
+    search_method.nil? ? send_chain : send_chain.send(search_method,search_value)
   end
 
   def send_chain
-    filter_method.inject(Politician) {|o,a| o.send(a)}
+    filter_method.inject(Politician) {|polit,filter| polit.send(filter)}
   end
 
 

@@ -32,7 +32,7 @@ class Politician < ApplicationRecord
     'Has Facebook','Has Twitter','Social Gurus', 'All']
   ##QUERIES ADD ^ HERE
 
-  SEARCH_BY = {
+  SEARCH_HASH = {
     'Over (Age)' => 'polit_over_age',
     'Under (Age)' => 'polit_under_age',
     'By (Age)' => 'polit_by_age'
