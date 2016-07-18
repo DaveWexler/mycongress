@@ -4,7 +4,9 @@
 <p>Search by:<%= select_tag "query[search_by]", options_for_select(Politician::SEARCH_BY, "by education") %>
 Value: <%= text_field_tag "query[search_value]" %></p>
 <p>Filter By:<% Politician::FILTER_BY.each do |search_filter| %></p>
-<p> <%= search_filter
+<p> <%= search_filter %>
+<%= check_box_tag search_filter %> </p>
+<% end %>
 
 <%= submit_tag 'Search' %>
 <% end %>
