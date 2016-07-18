@@ -3,7 +3,7 @@ class PoliticianMailer < ApplicationMailer
 
 	def send_email(message)
 		@message = message
-		email = User.find(@message.user_id).email
+		email = @message.user.email
 		mail(to: email, subject: 'Message from MyCongress')
 	end
 end
