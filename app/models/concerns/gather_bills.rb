@@ -3,7 +3,7 @@ class GatherBills
 	attr_reader :politicians
 
   def initialize(politicians)
-  	@politicians = politicians
+  	@politicians = [politicians].flatten
   end
 
   def run
@@ -11,8 +11,9 @@ class GatherBills
   end
 
   def get_bills(politician)
-    client = Adapter::Bills.new
-    client.run(politician)
+    client = Adapter::Bills.new  
+    politician.bills.destroy_all
+		Bill.create(client.run(politician))
   end
 
 

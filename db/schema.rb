@@ -15,6 +15,24 @@ ActiveRecord::Schema.define(version: 20160718191513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bills", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "bill_id"
+    t.string   "chamber"
+    t.string   "committee_ids"
+    t.boolean  "active"
+    t.boolean  "awaiting_signature"
+    t.boolean  "enacted"
+    t.boolean  "vetoed"
+    t.string   "introduced_on"
+    t.string   "pdf"
+    t.integer  "politician_id"
+    t.integer  "cosponsor_count"
+    t.string   "url"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "districts", force: :cascade do |t|
     t.string   "name"
     t.integer  "state_id"

@@ -2,10 +2,8 @@ class PoliticiansController < ApplicationController
 
   def show
     @politician = Politician.find(params[:id])
-    if request.referer == request.url
-      flash[:alert] = "Post successfully created"
-    end
-
+    GatherBills.new(@politician).run
+    flash[:alert] = "Post successfully created" if request.referer == request.url
   end
 
   def index

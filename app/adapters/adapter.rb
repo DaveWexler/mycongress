@@ -124,7 +124,7 @@ module Adapter
 
     def parse(bill)
       {
-        short_title: bill["title"],
+        title: ( bill["short_title"] || bill["official_title"]),
         bill_id: bill["bill_id"],
         chamber: bill["chamber"],
         committee_ids: bill["committee_ids"],
@@ -134,7 +134,7 @@ module Adapter
         vetoed: bill["history"]["vetoed"],
         introduced_on: bill["introduced_on"],
         pdf: bill["last_version"]["urls"]["pdf"],
-        cosponsors_count: bill["cosponsor_count"],
+        cosponsor_count: bill["cosponsor_count"],
         url: bill["urls"]["govtrack"],
         politician_id: @polit.id
       }

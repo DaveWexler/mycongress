@@ -2,6 +2,7 @@ class BillsController < ApplicationController
 	
 
 	def new
+		binding.pry
 		@bill = Bill.new
 	end
 

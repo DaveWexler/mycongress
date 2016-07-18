@@ -1,9 +1,8 @@
-
-
 class Politician < ApplicationRecord
   has_many :messages
   belongs_to :state
   belongs_to :district
+  has_many :bills
 
   include ActionView::Helpers::DateHelper
 
