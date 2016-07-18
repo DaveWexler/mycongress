@@ -11,7 +11,10 @@ end
 
 def create
   user = User.find_by(email: params[:user][:email])
-  if user.authenticate(params[:user][:password])
+  if user == nil
+    flash[:message] = 'A user with that email address does not exist. Please create an account.'
+    render 'new'
+  elsif user.authenticate(params[:user][:password])
     session[:user_id] = user.id
     redirect_to user_path(session[:user_id])
   else
