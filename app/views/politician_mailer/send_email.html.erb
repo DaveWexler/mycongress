@@ -5,7 +5,7 @@
   </head>
   <body>
     <p>Hi <%= User.find(@message.user_id).first_name%>,</p>
-    <p> You've receieved a message from a MyCongress user. The subject and content are below.</p>
+    <p> You've receieved a message from a MyCongress user. The subject and content can be found below.</p>
     <p>Subject: <%= @message.subject %></p>
     <p>Content: <%= @message.content %></p>
     </br>

@@ -1,6 +1,3 @@
-
-require 'httparty'
-require 'pry'
 module Adapter
 
   class Legislators
@@ -97,6 +94,28 @@ module Adapter
 
     def search(long,lat)
       response = self.class.get(BASE_URL, { query: {latitude: lat, longitude: long, apikey: API_KEY}})
+    end
+
+
+    def run
+      query = Geocoder.search("#{@user.street_address}, #{@user.city},#{@user.state.name}")
+      coordinates = query.first.data["geometry"]["location"]
+      district_num = search(coordinates['lng'],coordinates['lat'])["results"][0]["district"]
+      @user.district = District.find_by(name: district_num,state: @user.state)
+    end
+
+  end
+
+
+  class Bills
+    include HTTParty
+
+    BASE_URL = 'https://congress.api.sunlightfoundation.com/bills'
+    API_KEY = '15f7888634d244858926287bbd6222d9'
+
+    def search
+      response = self.class.get(BASE_URL, { query: {history: '?', apikey: API_KEY}})
+      binding.pry
     end
 
 

@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     Adapter::Districts.new(@user)
-    binding.pry
     @user.save
     if @user.errors.messages.present?
       flash.now[:message] = @user.errors.full_messages

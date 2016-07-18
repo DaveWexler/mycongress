@@ -12,7 +12,7 @@ class Politician < ApplicationRecord
   end
 
   def senate
-    "Member of the United States Senate representing #{state.name}"
+    "Member of the United States Senate representing the State of #{state.name}"
   end
 
   def house
