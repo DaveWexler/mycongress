@@ -1,10 +1,15 @@
 <br>
 <br>
 <div class="row">
-  <%= render partial: "politician_profile", locals: {politician: @politician} %>
+  <%= render "politician_profile", politician: @politician %>
   <div class="message col-md-9 col-sm-6">
-    <%= render partial: "/messages/form"%>
+  	<h3>Bills</h3>
+    <%= render @politician.bills %>
+    </div>
+    <div class="message col-md-9 col-sm-6">
+    <h3>Send a Message</h3>
+    <%= render partial: "messages/form" %>
+    </div>
   </div>
 </div>
-		<%= render partial: "/politician_bills" %>
 

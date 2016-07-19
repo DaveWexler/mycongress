@@ -133,14 +133,18 @@ module Adapter
         enacted: bill["history"]["enacted"],
         vetoed: bill["history"]["vetoed"],
         introduced_on: bill["introduced_on"],
-        pdf: bill["last_version"]["urls"]["pdf"],
+        pdf: pdf_from(bill),
         cosponsor_count: bill["cosponsor_count"],
         url: bill["urls"]["govtrack"],
         politician_id: @polit.id
       }
     end
 
+    private
 
+    def pdf_from(bill)
+      bill["last_version"]["urls"]["pdf"] rescue nil
+    end
   end
 
 end

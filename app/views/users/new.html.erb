@@ -23,6 +23,6 @@
   <p><%= f.label :city %></p>
   <p><%= f.text_field :city %></p>
   <p><%= f.label :state %></p>
-  <p><%= f.collection_select :state_id, State.all, :id, :name %></p>
+  <p><%= f.collection_select :state_id, State.ordered, :id, :name %></p>
   <%= f.submit %>
 <% end %>

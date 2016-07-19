@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
 		@message.politician_id = request.referer[34..-1].to_i
 		@message.save
 		PoliticianMailer.send_email(@message).deliver
+		flash[:alert] = "Message successfully created"
 		redirect_to politician_path(Politician.find_by(id: @message.politician_id))
 	end
 

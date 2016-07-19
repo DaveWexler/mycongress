@@ -1,7 +1,9 @@
 <div class="panel panel-default col-xs-4 colspace">
   <div class="panel-body">
-    <% @politician.bills.each do |bill|  %>
-    	<%= link_to bill.title, bill.url %>
+  
+    <% politician.bills.each do |bill|  %>
+    <%= binding.pry %>
+    	<p><%= link_to bill.title, bill.url %></p>
     <% end %>
     </div>
 </div>
