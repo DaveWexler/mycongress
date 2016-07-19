@@ -36,35 +36,14 @@ img {
  min-width: 225px;
 }
 
-.sidebar, .message {
+.sidebar, .message, .bills {
   background-color: white;
 }
 
 .message {
-  clear: none;
-  float: right;
-  /*margin-left: 2%;*/
+  margin-top: 15px;
 }
 
-/*.pol-img {
-  display: block;
-  vertical-align: middle;
-  margin: 0 auto;
-  padding: 10px 10px;
-  float: left;
-}*/
-/*
-.pol-info {
-  clear: left;
-  padding: 10px 10px;
-}*/
-/*.col-xs-3 {
-  width: 32.666
-}
-
-.col-xs-9 {
-  width: 65.333
-}*/
 
 /* ------ end politician show page ---------*/
 
