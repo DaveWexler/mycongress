@@ -39,11 +39,16 @@ class Politician < ApplicationRecord
     'Over (Age)' => 'polit_over_age',
     'Under (Age)' => 'polit_under_age',
     'By (Age)' => 'polit_by_age',
-    'By (Name)' => 'get_name'
+    'By (Last Name)' => 'last_name',
+    'By (First Name)' => 'first_name'
   }
 
-  def self.get_name(name)
-    where('name = ?',"#{name}")
+  def self.last_name(last_name)
+    where('last_name = ?',"#{last_name}")
+  end
+
+  def self.first_name(first_name)
+    where('first_name = ?',"#{first_name}")
   end
 
   def self.republican

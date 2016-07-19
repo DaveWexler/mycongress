@@ -27,11 +27,17 @@ class PoliticiansController < ApplicationController
   end
 
   def filter_method
-    query_params.values[2].map(&:downcase).map {|value| value.split.join('_')}
+    query_params.values[2].map(&:downcase).map {|value| value.split.join('_')} if !query_params.values[2].nil?
   end
 
   def search
-    search_method.nil? ? send_chain : send_chain.send(search_method,search_value)
+    if search_method.nil?
+      send_chain 
+    elsif filter_method.nil?
+      Politician.send(search_method,search_value)
+    else
+      send_chain.send(search_method,search_value)
+    end
   end
 
   def send_chain
