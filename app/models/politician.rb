@@ -31,6 +31,10 @@ class Politician < ApplicationRecord
     [first_name, middle_name, last_name].compact.join(' ')
   end
 
+  def first_last
+    [first_name, last_name].compact.join(' ')
+  end
+
   FILTER_BY = ['Senators','House of Reps','Democrat','Republican','Has Youtube', 
     'Has Facebook','Has Twitter','Social Gurus', 'All']
   ##QUERIES ADD ^ HERE
