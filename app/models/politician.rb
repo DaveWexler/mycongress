@@ -38,8 +38,13 @@ class Politician < ApplicationRecord
   SEARCH_HASH = {
     'Over (Age)' => 'polit_over_age',
     'Under (Age)' => 'polit_under_age',
-    'By (Age)' => 'polit_by_age'
+    'By (Age)' => 'polit_by_age',
+    'By (Name)' => 'get_name'
   }
+
+  def self.get_name(name)
+    where('name = ?',"#{name}")
+  end
 
   def self.republican
     where(party: 'R')
