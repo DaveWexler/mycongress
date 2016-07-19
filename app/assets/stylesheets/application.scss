@@ -34,11 +34,19 @@ img {
 
 .message {
   margin-top: 15px;
-  float: right;
 }
 
+.message, .bills {
+  float: right;
+  width: 72.5%;
+  margin-left: 1%;
+}
 
-
+.thumbnail {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  padding-top: 24px;
+}
 
 /* ------ end politician show page ---------*/
 
@@ -79,8 +87,7 @@ img {
   margin-left: 5%;
   margin-right: 2%;
 }
-/*[class*="col-"]:first-child {
-  margin-left: 0;
-}*/
-/* --------- */
 
+.shadow {
+  box-shadow: 6px 6px 3px gray;
+}
