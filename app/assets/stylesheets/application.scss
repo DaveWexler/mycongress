@@ -21,11 +21,7 @@
 }
 
 body {
-  background: url('sandpaper.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  background: url('sandpaper.png');
 }
 
 /* -------politician show page ----------*/
@@ -36,13 +32,11 @@ img {
  min-width: 225px;
 }
 
-.sidebar, .message, .bills {
-  background-color: white;
-}
-
 .message {
   margin-top: 15px;
 }
+
+
 
 
 /* ------ end politician show page ---------*/
@@ -74,8 +68,14 @@ img {
   width: 32.333%;
 }
 
+.whitebox{
+  background-color: rgba(0, 0, 0, 0.075);
+  border-radius: 15px;
+  margin-bottom: 2em;
+}
+
 .colspace {
-  margin-left: 2%;
+  margin-left: 5%;
   margin-right: 2%;
 }
 /*[class*="col-"]:first-child {

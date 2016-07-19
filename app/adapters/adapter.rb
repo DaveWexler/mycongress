@@ -18,7 +18,7 @@ module Adapter
         politicians << self.search(page_num)["results"]
         page_num += 1
       end
-      politicians.flatten!.uniq!.each do |politician|
+      politicians.flatten.uniq.each do |politician|
         Politician.create(parse(politician))
         grab_photo(politician)
       end
@@ -26,7 +26,6 @@ module Adapter
 
     def parse(politician)
       newpol = {}
-
       newpol["chamber"] = politician["chamber"]
       newpol["bioguide_id"] = politician["bioguide_id"]
       newpol["birthday"] = politician["birthday"]
@@ -134,7 +133,7 @@ module Adapter
         vetoed: bill["history"]["vetoed"],
         introduced_on: bill["introduced_on"],
         pdf: pdf_from(bill),
-        cosponsor_count: bill["cosponsor_count"],
+        cosponsor_count: bill["cosponsors_count"],
         url: bill["urls"]["govtrack"],
         politician_id: @polit.id
       }

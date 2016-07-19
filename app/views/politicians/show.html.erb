@@ -1,14 +1,14 @@
 <br>
 <br>
-<div class="row">
+<div class="row" >
   <%= render "politician_profile", politician: @politician %>
-  <div class="bills col-md-9 col-sm-6">
+  <div class="bills col-md-9 col-sm-6 whitebox">
     
     	<h3>Bills</h3>
       <%= render @politician.bills %>
       <!-- <div class="spacer"><p> </p></div> -->
       </div>
-      <div class="message col-md-9 col-sm-6">
+      <div class="message col-md-9 col-sm-6 whitebox">
       <h3>Send a Message</h3>
       <%= render partial: "messages/form" %>
       </div>

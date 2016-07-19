@@ -13,7 +13,7 @@
       <div class="row">
       <br>
       <br>
-        <div id="sidebar" class="panel panel-default col-xs-3 colspace background">
+        <div id="sidebar" class="panel panel-default col-xs-3 colspace whitebox">
         <div class="panel body">
           <%= link_to image_tag("#{@user.representative.image_name}"), politician_path(@user.representative) %>
           <h3><%= @user.representative.full_name  %></h3>
@@ -22,7 +22,7 @@
           <p><%= @user.representative.chamber %></p>
           </div>
         </div>
-        <div id="sidebar" class="panel panel-default col-xs-3 colspace">
+        <div id="sidebar" class="panel panel-default col-xs-3 colspace whitebox">
         <div class="panel body">
           <%= link_to image_tag("#{@user.senior_sen.image_name}"), politician_path(@user.senior_sen) %>
           <h3><%= @user.senior_sen.full_name  %></h3>
@@ -31,7 +31,7 @@
           <p><%= @user.senior_sen.chamber %></p>
           </div>
         </div>
-        <div id="sidebar" class="panel panel-default col-xs-3 colspace">
+        <div id="sidebar" class="panel panel-default col-xs-3 colspace whitebox">
         <div class="panel body">
           <%= link_to image_tag("#{@user.junior_sen.image_name}"), politician_path(@user.junior_sen) %>
           <h3><%= @user.junior_sen.full_name  %></h3>
