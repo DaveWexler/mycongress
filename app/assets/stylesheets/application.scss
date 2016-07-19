@@ -21,7 +21,7 @@
 }
 
 body {
-  background: url('faded_flag1.jpg') no-repeat center center fixed;
+  background: url('sandpaper.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -75,7 +75,8 @@ img {
 }
 
 .colspace {
-  margin-left: 1%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 /*[class*="col-"]:first-child {
   margin-left: 0;
