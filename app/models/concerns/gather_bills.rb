@@ -17,6 +17,4 @@ class GatherBills
   end
 
 
-
-
 end

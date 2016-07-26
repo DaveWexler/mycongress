@@ -1,8 +1,7 @@
-<div class="panel panel-default col-xs-4 whitebox">
+<div class="panel panel-default col-xs-4 whitebox shadow">
   <div class="panel-body">
   
     <% politician.bills.each do |bill|  %>
-    <%= binding.pry %>
     	<p><%= link_to bill.title, bill.url %></p>
     <% end %>
     </div>

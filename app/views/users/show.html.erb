@@ -1,11 +1,9 @@
-<h1>Welcome to your homepage!</h1>
-
-<h3>Your information:</h3>
-
-<ul>
-  <li>Name: <%= @user.name %></li>
-  <li>Address: <%= "#{@user.street_address}, #{@user.city}, #{@user.district.state.name}" %></li>
-</ul>
+<div class="panel panel-default hero-feature whitebox shadow">
+<div class="panel-body">
+<div><h3><%= @user.name %></h3></div>
+<div><%= "#{@user.street_address}, #{@user.city}, #{@user.district.state.name}" %></div>
+</div>
+</div>
 
 <h3>Your Representatives</h3>
 
